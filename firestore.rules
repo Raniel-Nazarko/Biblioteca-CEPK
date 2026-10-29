@@ -1,0 +1,18 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Catálogo público: leitura liberada; somente usuários autenticados podem alterar livros.
+    // Se houver mais de uma conta autenticada, use a regra por UID abaixo para restringir ao responsável.
+    match /books/{bookId} {
+      allow read: if true;
+      allow create, update, delete: if request.auth != null
+        && request.auth.uid == "COLOQUE_AQUI_O_UID_DO_RESPONSAVEL";
+    }
+
+    // Empréstimos e dados dos leitores nunca ficam públicos.
+    match /loans/{loanId} {
+      allow read, create, update, delete: if request.auth != null
+        && request.auth.uid == "COLOQUE_AQUI_O_UID_DO_RESPONSAVEL";
+    }
+  }
+}
