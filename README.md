@@ -9,5 +9,5 @@ Este projeto não usa Node.js nem servidor próprio. O frontend é estático e p
 - `firestore.rules`: regras iniciais para proteger o banco.
 
 ## Contas
-- 'Área do Responsável': Tela com login pre definido que pode adicionar livros ao catalogo realizar empréstimos de livros para as pessoas.
+- 'Área do Responsável': Tela com login pre definido que pode adicionar livros ao catalogo realizar empréstimos de livros para as pessoas, a senha da área do responsável é 115139.
 - 'Catálogo': Tela que qual quer um pode abrir e visualizar todos os livros do catalogo, quantas copias tem.
